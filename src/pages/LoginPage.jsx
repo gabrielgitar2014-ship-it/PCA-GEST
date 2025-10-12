@@ -18,7 +18,6 @@ function LoginPage() {
     e.preventDefault();
     setError('');
     setLoading(true);
-
     const { error } = await signInWithEmail(email, password);
 
     if (error) {
@@ -26,7 +25,7 @@ function LoginPage() {
       setLoading(false);
     } else {
       // O onAuthStateChange no AuthContext cuidará de atualizar o estado.
-      // A navegação será tratada pelo componente de Rota Protegida, 
+      // A navegação será tratada pelo componente de Rota Protegida,
       // mas podemos dar um empurrão inicial aqui.
       navigate('/');
     }
@@ -59,12 +58,19 @@ function LoginPage() {
             />
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-medium text-slate-300"
-            >
-              Senha
-            </label>
+            <div className="flex items-center justify-between">
+              <label
+                htmlFor="password"
+                className="block text-sm font-medium text-slate-300"
+              >
+                Senha
+              </label>
+              <div className="text-sm">
+                <Link to="/recuperar-senha" className="font-semibold text-indigo-400 hover:text-indigo-300">
+                  Esqueceu a senha?
+                </Link>
+              </div>
+            </div>
             <input
               id="password"
               name="password"
