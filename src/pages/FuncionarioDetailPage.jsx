@@ -6,9 +6,9 @@ import { useData } from '@/contexts/DataContext';
 import { FiLoader, FiArrowLeft } from 'react-icons/fi';
 
 // Importando TODAS as abas de seus arquivos externos
-import GeneralTab from '@/components/FuncionarioTabs/Generaltab';
-import EvolucaoTab from '@/components/FuncionarioTabs/EvolucaoTab';
-import ExamesTab from '@/components/FuncionarioTabs/ExamesTab';
+import GeneralTab from '../components/FuncionarioTabs/GeneralTab';
+import EvolucaoTab from '../components/FuncionarioTabs/EvolucaoTab';
+import ExamesTab from '../components/FuncionarioTabs/ExamesTab';
 
 // ===================================================================
 //  COMPONENTE PRINCIPAL DA PÁGINA (O CÉREBRO ORQUESTRADOR)
