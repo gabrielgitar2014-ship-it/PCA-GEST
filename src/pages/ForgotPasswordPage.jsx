@@ -1,32 +1,31 @@
-// DENTRO DE: src/pages/ForgotPasswordPage.jsx
+// NOVO ARQUIVO: src/pages/ForgotPasswordPage.jsx
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext'; [span_0](start_span)//[span_0](end_span)
+import { useAuth } from '@/contexts/AuthContext';
 import { FiMail, FiLoader, FiCheckCircle } from 'react-icons/fi';
 
 function ForgotPasswordPage() {
-  const [email, setEmail] = useState(''); [span_1](start_span)//[span_1](end_span)
-  const [loading, setLoading] = useState(false); [span_2](start_span)//[span_2](end_span)
-  const [error, setError] = useState(''); [span_3](start_span)//[span_3](end_span)
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [message, setMessage] = useState('');
   const { resetPasswordForEmail } = useAuth();
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); [span_4](start_span)//[span_4](end_span)
+    e.preventDefault();
     setError('');
     setMessage('');
     setLoading(true);
 
-    // A função resetPasswordForEmail virá do seu AuthContext
     const { error } = await resetPasswordForEmail(email);
 
     if (error) {
       setError('Não foi possível enviar o link. Verifique o e-mail informado.');
     } else {
-      setMessage('Link de recuperação enviado! Verifique sua caixa de entrada.');
+      setMessage('Link de recuperação enviado! Verifique sua caixa de entrada e a pasta de spam.');
     }
-    setLoading(false); [span_5](start_span)//[span_5](end_span)
+    setLoading(false);
   };
 
   return (
@@ -50,25 +49,22 @@ function ForgotPasswordPage() {
         ) : (
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label
-                htmlFor="email"
-                [span_6](start_span)className="block text-sm font-medium text-slate-300" //[span_6](end_span)
-              >
+              <label htmlFor="email" className="block text-sm font-medium text-slate-300">
                 Email
               </label>
               <input
-                [span_7](start_span)id="email" //[span_7](end_span)
+                id="email"
                 name="email"
                 type="email"
                 autoComplete="email"
-                [span_8](start_span)required //[span_8](end_span)
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                [span_9](start_span)className="w-full px-4 py-2 mt-2 text-white bg-slate-900 border border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none" //[span_9](end_span)
+                className="w-full px-4 py-2 mt-2 text-white bg-slate-900 border border-slate-700 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               />
             </div>
             
-            [span_10](start_span){error && <p className="text-sm text-red-500 text-center">{error}</p>} {/*[span_10](end_span) */}
+            {error && <p className="text-sm text-red-500 text-center">{error}</p>}
 
             <div>
               <button
@@ -76,9 +72,7 @@ function ForgotPasswordPage() {
                 disabled={loading}
                 className="w-full flex justify-center items-center gap-2 py-3 px-4 text-sm font-semibold rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 disabled:bg-slate-600 disabled:cursor-not-allowed transition-colors"
               >
-                {loading ? (
-                  [span_11](start_span)<FiLoader className="animate-spin" /> //[span_11](end_span)
-                ) : (
+                {loading ? <FiLoader className="animate-spin" /> : (
                   <>
                     <FiMail />
                     Enviar Link de Recuperação
