@@ -67,6 +67,21 @@ export function AuthProvider({ children }) {
           data: additionalData
         }
       }),
+
+    // Função para enviar e-mail de recuperação de senha
+    resetPasswordForEmail: (email) => {
+      // Usa a origem da URL atual para construir a URL de redirecionamento.
+      // Isso funciona tanto para localhost quanto para o site em produção.
+      const redirectUrl = window.location.origin + '/update-password';
+      return supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: redirectUrl,
+      });
+    },
+
+    // Função para atualizar a senha do usuário (quando ele está na página de redefinição)
+    // O Supabase lê o token de acesso da URL automaticamente.
+    updatePassword: (password) => 
+      supabase.auth.updateUser({ password }),
   };
 
   // Retorna o Provedor com o 'value' definido, envolvendo os componentes filhos (children)
