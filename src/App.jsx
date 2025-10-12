@@ -13,6 +13,8 @@ import MainLayout from '@/components/MainLayout';
 // 3. Importando todas as páginas da aplicação
 import LoginPage from '@/pages/LoginPage';
 import SignUpPage from '@/pages/SignUpPage';
+import ForgotPasswordPage from '@/pages/ForgotPasswordPage'; // Importado
+import ResetPasswordPage from '@/pages/ResetPasswordPage';   // Importado
 import CompanySelection from '@/pages/CompanySelection';
 import Dashboard from '@/pages/Dashboard';
 import FuncionariosPage from '@/pages/FuncionariosPage';
@@ -30,6 +32,8 @@ function App() {
               {/* --- ROTAS PÚBLICAS --- */}
               <Route path="/login" element={<LoginPage />} />
               <Route path="/cadastro" element={<SignUpPage />} />
+              <Route path="/recuperar-senha" element={<ForgotPasswordPage />} />
+              <Route path="/update-password" element={<ResetPasswordPage />} />
 
               {/* --- ROTAS PROTEGIDAS --- */}
               
