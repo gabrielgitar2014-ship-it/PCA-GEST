@@ -113,7 +113,7 @@ export default function CompanySelection() {
 
       {/* Modal para Criar Nova Empresa */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50 transition-opacity duration-300 animate-fade-in">
+        <div className="fixed inset-0 bg- bg-opacity-60 backdrop-blur-sm flex justify-center items-center z-50 transition-opacity duration-300 animate-fade-in">
           <div className="bg-white p-8 rounded-2xl w-full max-w-md shadow-2xl animate-slide-up">
             <h2 className="text-xl font-bold text-slate-800 mb-6">Adicionar Nova Empresa</h2>
             
