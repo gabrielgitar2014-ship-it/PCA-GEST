@@ -5,11 +5,11 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite --host",
-    "build": "vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist",
-    "start": "NODE_ENV=production node dist/index.js",
-    "preview": "vite preview --host",
+    "build": "vite build",
+    "start": "vite preview --host",
     "check": "tsc --noEmit",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "vercel-build": "vite build"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.12",
@@ -71,6 +71,7 @@
     "@types/node": "^24.7.0",
     "@types/react": "^19.1.16",
     "@types/react-dom": "^19.1.9",
+    "@vercel/node": "^3.0.31",
     "@vitejs/plugin-react": "^5.0.4",
     "add": "^2.0.6",
     "autoprefixer": "^10.4.20",
