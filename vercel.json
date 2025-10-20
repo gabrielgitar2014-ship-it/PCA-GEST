@@ -1,12 +1,24 @@
 {
   "builds": [
-    { "src": "client/package.json", "use": "@vercel/static-build" },
-    { "src": "api/**/*.ts", "use": "@vercel/node" }
+    // Mantém apenas o build do frontend estático
+    // Diz à Vercel para rodar o build script (npm run build ou pnpm run build)
+    // definido no client/package.json. O @vercel/static-build
+    // detectará automaticamente a saída em 'client/dist' se o vite.config.ts estiver correto.
+    { 
+      "src": "client/package.json", 
+      "use": "@vercel/static-build" 
+      // "config": { "distDir": "dist" } // Opcional: Especifica explicitamente o diretório de saída relativo ao src
+    }
   ],
-  "installCommand": "cd client && pnpm install",
-  "buildCommand": "cd client && pnpm run build",
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/index.ts" },
-    { "src": "/(.*)", "dest": "/client/dist/$1" }
+    // Remove a rota antiga: { "src": "/api/(.*)", "dest": "/api/index.ts" }
+
+    // Rota para Single Page Applications (SPA):
+    // 1. Tenta servir arquivos estáticos que existem no diretório de saída (client/dist)
+    { "handle": "filesystem" }, 
+    // 2. Se nenhum arquivo corresponder (ex: /features, /pricing), 
+    //    serve o index.html principal para que o roteador do React (wouter) assuma.
+    //    O 'dest' deve ser o caminho para o index.html RELATIVO À RAIZ DO PROJETO.
+    { "src": "/(.*)", "dest": "/client/dist/index.html" } 
   ]
 }
