@@ -1,7 +1,6 @@
 import * as React from "react";
-import { OTPInput, OTPInputContext } from "input-otp";
+import { OTPInput, OTPInputContext, InputOTPContext as InputOTPContextType } from "input-otp"; // 1. Importar o tipo do Contexto
 import { MinusIcon } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 function InputOTP({
@@ -41,8 +40,11 @@ function InputOTPSlot({
 }: React.ComponentProps<"div"> & {
   index: number;
 }) {
-  const inputOTPContext = React.useContext(OTPInputContext);
-  const { char, hasFakeCaret, isActive } = inputOTPContext?.slots[index] ?? {};
+  // 2. Usar a tipagem explícita (InputOTPContextType) para o contexto
+  const inputOTPContext = React.useContext(OTPInputContext) as InputOTPContextType; 
+  
+  // 3. Tipagem no acesso (usando o tipo correto)
+  const { char, hasFakeCaret, isActive } = inputOTPContext.slots?.[index] ?? {}; 
 
   return (
     <div
