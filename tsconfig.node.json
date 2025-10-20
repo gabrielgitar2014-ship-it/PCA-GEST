@@ -1,4 +1,4 @@
-// tsconfig.node.json (Corrigido)
+// tsconfig.node.json (Corrigido para Build)
 {
   "compilerOptions": {
     // Configurações existentes...
@@ -12,8 +12,9 @@
     "moduleDetection": "force",
 
     /* Correções para Project References */
-    "composite": true,          // ✅ ADICIONADO: Habilita o modo composite
-    // "noEmit": true,          // ❌ REMOVIDO: Projeto referenciado deve poder emitir
+    "composite": true,
+    "noEmit": true, // ✅ CORRIGIDO: Necessário para usar 'allowImportingTsExtensions'
+    // A remoção desta linha causava o erro TS5096
 
     /* Linting (mantido) */
     "strict": true,
@@ -21,5 +22,5 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["vite.config.ts"] // Arquivo que este config cobre
+  "include": ["vite.config.ts"]
 }
