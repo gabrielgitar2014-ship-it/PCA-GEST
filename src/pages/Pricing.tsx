@@ -1,29 +1,31 @@
-// DENTRO DE: src/pages/Pricing.tsx (Revertido para Explicação)
+// DENTRO DE: src/pages/Pricing.tsx
 
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import Header from "@/components/Header";
-import { CheckCircle2, TrendingUp, Calculator } from "lucide-react"; // Ícones relevantes
+import { CheckCircle2, TrendingUp, Calculator } from "lucide-react";
+// Ícones relevantes
 
 export default function Pricing() {
 
+  // ✅ CORRIGIDO: Funções não utilizadas (TS6133) foram removidas ou comentadas.
+  /*
   // Função para calcular o desconto (pode ser usada para exemplos)
   const calculateDiscountPercent = (qty: number): number => {
     if (qty <= 1) return 0;
     return qty + 1; // Desconto = (Quantidade + 1)%
   };
-
   // Função para calcular preço final (pode ser usada para exemplos)
    const calculateFinalPrice = (qty: number): number => {
     if (qty <= 0) return 0;
     const basePricePerToken = 130;
     const totalPrice = qty * basePricePerToken;
     if (qty === 1) return totalPrice;
-    
     const discountPercentage = (qty + 1) / 100;
     const effectiveDiscount = Math.min(discountPercentage, 0.99); 
     return totalPrice * (1 - effectiveDiscount);
   };
+  */
 
   return (
     <div className="min-h-screen flex flex-col bg-background">
@@ -45,7 +47,7 @@ export default function Pricing() {
       <section className="py-20 px-4 bg-white dark:bg-slate-950">
         <div className="container max-w-3xl mx-auto">
           <div className="text-center mb-16">
-             <Calculator className="w-16 h-16 text-blue-600 mx-auto mb-4"/>
+            <Calculator className="w-16 h-16 text-blue-600 mx-auto mb-4"/>
             <h2 className="text-3xl font-bold mb-4">Nosso Modelo de Preço</h2>
             <p className="text-lg text-muted-foreground max-w-xl mx-auto">
               Acreditamos em simplicidade. Você paga um valor base mensal por cada empresa que gerencia, com descontos automáticos quanto mais empresas você adiciona.
@@ -66,7 +68,8 @@ export default function Pricing() {
                     <div>
                         <h4 className="font-semibold">Desconto Progressivo Automático</h4>
                         <p className="text-sm text-muted-foreground">
-                            Quanto mais empresas você gerencia, maior o seu desconto! <br/>
+                            Quanto mais empresas você gerencia, maior o seu desconto!
+                            <br/>
                             A partir da 2ª empresa, o desconto é de <strong>(Nº de Empresas + 1)%</strong> sobre o valor total.
                         </p>
                     </div>
@@ -80,7 +83,7 @@ export default function Pricing() {
           </div>
           
            <div className="text-center mb-12">
-              <h3 className="text-xl font-semibold mb-4">Todas as funcionalidades sempre incluídas:</h3>
+            <h3 className="text-xl font-semibold mb-4">Todas as funcionalidades sempre incluídas:</h3>
               <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-muted-foreground">
                 <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-green-500"/> Monitoramento</span>
                 <span className="inline-flex items-center gap-1.5"><CheckCircle2 className="w-4 h-4 text-green-500"/> Audiometrias</span>
@@ -113,7 +116,7 @@ export default function Pricing() {
       <footer className="border-t border-border bg-background py-12 px-4">
         <div className="container max-w-5xl mx-auto">
           {/* ... Conteúdo do Footer ... */}
-           <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
             <p>&copy; {new Date().getFullYear()} PCA-GES. Todos os direitos reservados.</p>
           </div>
         </div>
