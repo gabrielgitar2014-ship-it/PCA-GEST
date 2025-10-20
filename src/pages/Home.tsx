@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import Header from "@/components/Header";
-import { CheckCircle2, BarChart3, FileText, Users, Lock, Smartphone, AlertCircle, Shield } from "lucide-react";
+// ✅ CORRIGIDO: 'Lock' e 'Smartphone' removidos, resolvendo o TS6133
+import { CheckCircle2, BarChart3, FileText, Users, AlertCircle, Shield } from "lucide-react"; 
 
 export default function Home() {
   return (
@@ -309,4 +310,3 @@ export default function Home() {
     </div>
   );
 }
-
