@@ -1,0 +1,33 @@
+// A:/Projeto PCA/PCA-GES-Novo/tsconfig.json
+{
+  "compilerOptions": {
+    "target": "ESNext", // Mantenha ou ajuste conforme necessidade do Vite
+    "useDefineForClassFields": true, // Padrão Vite
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx", // Importante para React
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* Alias Configuration */
+    "baseUrl": ".", // A base é a raiz
+    "paths": {
+      "@/*": ["./src/*"] // ✅ CORRIGIDO: @/* agora aponta para ./src/* na raiz
+    },
+     "types": ["vite/client"] // Importante para Vite
+  },
+  "include": ["src"], // Inclui apenas a pasta src na raiz
+  "references": [{ "path": "./tsconfig.node.json" }] // Padrão Vite
+}
