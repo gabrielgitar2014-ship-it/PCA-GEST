@@ -1,8 +1,8 @@
 // A:/Projeto PCA/PCA-GES-Novo/tsconfig.json
 {
   "compilerOptions": {
-    "target": "ESNext", // Mantenha ou ajuste conforme necessidade do Vite
-    "useDefineForClassFields": true, // Padrão Vite
+    "target": "ESNext",
+    "useDefineForClassFields": true,
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "module": "ESNext",
     "skipLibCheck": true,
@@ -12,8 +12,8 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx", // Importante para React
+    "noEmit": true, // Mantemos o noEmit aqui para o código da aplicação
+    "jsx": "react-jsx", 
 
     /* Linting */
     "strict": true,
@@ -22,12 +22,12 @@
     "noFallthroughCasesInSwitch": true,
 
     /* Alias Configuration */
-    "baseUrl": ".", // A base é a raiz
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"] // ✅ CORRIGIDO: @/* agora aponta para ./src/* na raiz
+      "@/*": ["./src/*"] 
     },
-     "types": ["vite/client"] // Importante para Vite
+     "types": ["vite/client"] 
   },
-  "include": ["src"], // Inclui apenas a pasta src na raiz
-  "references": [{ "path": "./tsconfig.node.json" }] // Padrão Vite
+  "include": ["src"] 
+  // ✅ CORRIGIDO: Linha de 'references' removida para resolver o erro TS6310
 }
